@@ -23,12 +23,14 @@ def get_data_file_path(file_name: str):
 def url_csv_to_list(contents: str):
     lines = contents.split("\n")
     url_list = []
+    url_data = []
     for i, line in enumerate(lines):
         if i == 0:
             continue
         line = line.split(",", 1)
+        url_data.append(line)
         url_list.append(line[1])
-    return url_list
+    return url_list, url_data
 
 
 if __name__ == "__main__":
