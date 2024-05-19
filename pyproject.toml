@@ -7,8 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-youtube-dl = "^2021.12.17"
 ffmpeg-python = "^0.2.0"
+yt-dlp = "^2024.4.9"
 
 
 [build-system]
