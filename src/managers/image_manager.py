@@ -14,5 +14,5 @@ def save_first_frames():
         if image_name in image_names:
             print("Frame image already exists")
         else:
-            save_video_first_frame(video_name)
+            save_video_first_frame(video_name, image_name)
     return

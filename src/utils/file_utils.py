@@ -58,10 +58,12 @@ def url_csv_to_list(contents: str):
 
 
 def convert_video_name_to_image_name(video_name: str):
-    regex = re.compile(r"(?<=\d)VIDEO")
-    video_name_split = regex.split(video_name)
+    regex_video = re.compile(r"(?<=\d)VIDEO")
+    video_name_split = regex_video.split(video_name)
     video_name_split.insert(1, "FRAME")
-    return "".join(video_name_split)
+    image_name_wrong_ext = "".join(video_name_split)
+    image_name = re.sub(".webm", ".jpg", image_name_wrong_ext)
+    return image_name
 
 
 def get_output_file_names(extension):

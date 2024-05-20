@@ -11,3 +11,4 @@ def hour_time_to_seconds(hr: int, min: int, sec: int):
 
 if __name__ == "__main__":
     print(seconds_to_hour_time(26468))
+    print(hour_time_to_seconds(7, 18, 48))

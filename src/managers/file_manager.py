@@ -9,8 +9,6 @@ import os
 def get_url_list(file_name: str):
     """'file_name' input is the name of csv file within src/data/"""
     file_path = get_data_file_path(file_name)
-    print(file_path)
-    print(os.path.isfile(file_path))
     with open(file_path, "r") as url_file:
         contents = url_file.read()
         url_file.close()
