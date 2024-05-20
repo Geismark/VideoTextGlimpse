@@ -1,4 +1,4 @@
-import os.path
+import glob, os
 
 
 def get_url_list(file_name: str):
@@ -7,8 +7,8 @@ def get_url_list(file_name: str):
     with open(file_path, "r") as url_file:
         contents = url_file.read()
         url_file.close()
-    url_list = url_csv_to_list(contents)
-    return url_list
+    url_list, url_data = url_csv_to_list(contents)
+    return url_list, url_data
 
 
 def get_data_file_path(file_name: str):
@@ -27,7 +27,7 @@ def url_csv_to_list(contents: str):
     for i, line in enumerate(lines):
         if i == 0:
             continue
-        line = line.split(",", 1)
+        line = line.split(",")
         url_data.append(line)
         url_list.append(line[1])
     return url_list, url_data
