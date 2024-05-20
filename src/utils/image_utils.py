@@ -1,4 +1,4 @@
-import cv2, os, pytube
+import cv2, os
 
 
 def save_video_first_frame(video_file_name: str):

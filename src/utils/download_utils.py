@@ -1,8 +1,7 @@
-from datetime import datetime
 import yt_dlp, os, pytube
 
 
-def download_video(url: str, file_name, start_time, duration=0.5):
+def download_video(url: str, file_name, start_time, duration=0.1):
     '''file_name does NOT include extensions
     start_time is the timestamp to start the download in seconds
     duration is duration of downloaded video, not interval of saved sections (recommend to leave this unchanged)'''
@@ -13,6 +12,7 @@ def download_video(url: str, file_name, start_time, duration=0.5):
         # "download_sections": "*0:21:00 - 0:21:05",
         # INSTEAD, using ffmpeg's own options to only request the video from the start time
         # https://stackoverflow.com/a/76560401
+        # https://gist.github.com/space-pope/977b0d15cf01932332014194fc80c1f0
         "external_downloader": "ffmpeg",
         "external_downloader_args": {"ffmpeg_i": ["-ss", str(start_time), "-to", str(end_time)]},
         # Issue: rarely (but sometimes) overwrites previously downloaded file with same name
@@ -28,7 +28,7 @@ def download_video(url: str, file_name, start_time, duration=0.5):
 
 def get_url_duration(url:str):
     yt = pytube.YouTube(url)
-    return yt.length
+    return int(yt.length)
 
 if __name__ == "__main__":
     start_time = 16885
