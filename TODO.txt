@@ -1,0 +1,7 @@
+ffmpeg currently downloads as .webm
+- is this consistent
+- can it be forced to save as mp4 (or similar) instead?
+write video and image managers
+write tests
+add logger
+currently, each section of the same video requires its own download - looking online, seems this is the only way? Definitely worth looking into
