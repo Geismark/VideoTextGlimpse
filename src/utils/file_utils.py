@@ -71,3 +71,14 @@ def get_output_file_names(extension):
     output_path = get_output_path()
     files = [file for file in os.listdir(output_path) if file.endswith(extension)]
     return files
+
+
+def remove_files(file_paths: list):
+    fail_count = 0
+    for file in file_paths:
+        if not os.path.isfile(file):
+            print(f"Trying to remove file that doesn't exist: {file}")
+            fail_count += 1
+            continue
+        os.remove(file)
+    return fail_count
