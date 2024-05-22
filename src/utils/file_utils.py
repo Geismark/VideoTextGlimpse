@@ -1,5 +1,6 @@
 import os, re
 from src.utils.download_utils import get_url_duration
+from src.data.crops_dict import crops_dict
 
 
 def process_url_data(url_data):
@@ -82,3 +83,10 @@ def remove_files(file_paths: list):
             continue
         os.remove(file)
     return fail_count
+
+
+def get_crop_from_dict(csv_file_name):
+    crops = crops_dict.get(csv_file_name)
+    if not crops:
+        crops = []
+    return crops

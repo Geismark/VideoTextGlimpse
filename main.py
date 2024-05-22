@@ -1,4 +1,5 @@
 from src.managers.file_manager import get_url_list, delete_old_images
+from src.utils.file_utils import get_crop_from_dict
 from src.managers.download_manager import download_urls
 from src.managers.image_manager import save_first_frames
 
@@ -17,11 +18,7 @@ def main(
     if delete_old_images_bool:
         delete_old_images()
     if convert_to_images:
-        if csv_file_name == "Wirtual_DeepDip.csv":
-            # crops = ["name of the crop", (ymin, ymax), (xmin, xmax)]
-            crops = [["Falls", (50, 56), (85, 100)], ["Time", (37, 48), (75, 100)]]
-        else:
-            crops = []
+        crops = get_crop_from_dict(csv_file_name)
         save_first_frames(crops)
 
 

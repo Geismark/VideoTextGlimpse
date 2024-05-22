@@ -12,6 +12,5 @@ def save_first_frames(crops=None):
     for video_name in video_names:
         image_name = convert_video_name_to_image_name(video_name)
         crops_to_save_info = get_crops_to_save_info(crops, image_name, file_image_names)
-        print(f"2{crops=}\n\t{crops_to_save_info=}\n\t{image_name=}\n\t{video_name=}")
         save_video_first_frame(video_name, image_name, crops_to_save_info)
     return

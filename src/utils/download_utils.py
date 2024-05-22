@@ -1,7 +1,7 @@
 import yt_dlp, os, pytube
 
 
-def download_video(url: str, file_name, start_time, duration=0.1):
+def download_video(url: str, file_name, start_time, duration=0.1, verbose_bool=False):
     '''file_name does NOT include extensions
     start_time is the timestamp to start the download in seconds
     duration is duration of downloaded video, not interval of saved sections (recommend to leave this unchanged)'''
@@ -19,7 +19,7 @@ def download_video(url: str, file_name, start_time, duration=0.1):
         # actually desired in this case - no auto-deletion yet, but added download timestamp as a fix for now (different name -> always new file)
         "outtmpl": f"{os.path.realpath("output")}/{file_name}.%(ext)s",
         # "format": "bestvideo[ext=mp4]",
-        "verbose": True,
+        "verbose": verbose_bool,
         "force_keyframes_at_cuts": True,
     }
     with yt_dlp.YoutubeDL(yt_opts) as ydlp:

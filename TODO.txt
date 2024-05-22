@@ -1,7 +1,11 @@
 ffmpeg currently downloads as .webm
 - is this consistent
 - can it be forced to save as mp4 (or similar) instead?
-write video and image managers
 write tests
-add logger
+write custom logger
 currently, each section of the same video requires its own download - looking online, seems this is the only way? Definitely worth looking into
+
+reverse existing file search
+- check for image, THEN check for video
+
+make project more efficient (suspect cropping, specifically excluding images due to already existing, could be significantly improved)
